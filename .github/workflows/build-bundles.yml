@@ -44,7 +44,10 @@ jobs:
         run: |
           echo "commit_hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
           echo "gh_branch=${{ github.base_ref || github.ref_name }}" >> $GITHUB_OUTPUT
-          echo "GH OUTPUT: $GITHUB_OUTPUT"
+
+      - name: Logging
+        run: |
+          echo "${{ steps.vars.outputs.gh_branch}}"
 
       # # Set up Docker Buildx for multi-arch build
       # - name: Set up Docker Buildx
