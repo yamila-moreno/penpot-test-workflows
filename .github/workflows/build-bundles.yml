@@ -1,4 +1,4 @@
-name: Build and Upload Penpot Bundles
+name: Build and Upload Penpot bundles
 
 on:
   # Create bundler from manual action
