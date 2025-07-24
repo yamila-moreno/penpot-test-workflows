@@ -2,7 +2,7 @@ name: Build and Upload Penpot DEVELOP Bundles
 
 on:
   schedule:
-    - cron: '0 5-20 * * 1-5'
+    - cron: '16 5-20 * * 1-5'
 
 jobs:
   build-develop-bundle:
