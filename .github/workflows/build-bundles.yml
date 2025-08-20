@@ -26,8 +26,14 @@ jobs:
         id: vars
         run: |
           echo "commit_hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-          echo "gh_branch=${{ inputs.gh_ref }}" >> $GITHUB_OUTPUT
+          echo "gh_ref=${{ inputs.gh_ref }}" >> $GITHUB_OUTPUT
 
-      - name: Debug
+      - name: Debug with tag
+        if: github.ref_type == 'tag'
         run: |
-          echo ${{ steps.vars.outputs.gh_branch}}
+          echo "tag: ${{ steps.vars.outputs.gh_ref}}"
+
+      - name: Debug with branch
+        if: github.ref_type == 'branch'
+        run: |
+          echo "branch: ${{ steps.vars.outputs.gh_ref}}"
