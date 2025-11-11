@@ -1,8 +1,12 @@
 name: _DEVELOP
 
 on:
-  schedule:
-    - cron: '16 5-20 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      gh_ref:
+        description: 'Tag to release'
+        type: string
+        required: true
 
 jobs:
   build-bundle:

@@ -1,22 +1,11 @@
 name: 'Commit Message Check'
 on:
-  pull_request:
-    types:
-      - opened
-      - edited
-      - reopened
-      - synchronize
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - reopened
-      - synchronize
-  push:
-    branches:
-      - main
-      - develop
-      - staging
+  workflow_dispatch:
+    inputs:
+      gh_ref:
+        description: 'Tag to release'
+        type: string
+        required: true
 
 jobs:
   check-commit-message:
